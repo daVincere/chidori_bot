@@ -5,15 +5,19 @@ First messenger bot
 import sys, json, traceback, requests
 
 # always instantiate the flask application like this
-from flask import Flask, request
+from flask import Flask, request, render_template
 
-from . import thekey
+import thekey
 
 application = Flask(__name__)
 app = application
 
-@app.route('/', methods=['GET'])
+@app.route('/builder')
+def builder():
+	return render_template("builder.html")
 
+
+@app.route('/', methods=['GET'])
 # why?
 def handle_verification():
 	print "Handle Verification"

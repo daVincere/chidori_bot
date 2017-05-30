@@ -7,7 +7,7 @@ import sys, json, traceback, requests
 # always instantiate the flask application like this
 from flask import Flask, request
 
-from . import key
+from . import thekey
 
 application = Flask(__name__)
 app = application
@@ -18,7 +18,7 @@ app = application
 def handle_verification():
 	print "Handle Verification"
 
-	if request.args.get('hub.verify_token', '') == key.VERIFICATION_TOKEN:
+	if request.args.get('hub.verify_token', '') == thekey.VERIFICATION_TOKEN:
 		print "Voila! Webhook Verified"
 
 		return request.args.get('hub.challenge', '')
@@ -36,7 +36,7 @@ def handle_message():
 		try:
 			response = processIncoming(sender_id, message)
 			if response is not None:
-				send_message(key.ACCESS_TOKEN, sender_id, response)
+				send_message(thekey.ACCESS_TOKEN, sender_id, response)
 				print response
 			else:
 				send_message(thekey.ACCESS_TOKEN, sender_id, "Sorry I didn't get your message")

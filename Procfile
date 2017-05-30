@@ -1,1 +1,1 @@
-web: gunicorn app:basic_echo_bot.py
+web: gunicorn app:basic_echo_bot

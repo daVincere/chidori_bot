@@ -141,8 +141,5 @@ def messaging_events(payload):
 # simple running protocol
 if __name__ == '__main__':
 	# if port no different
-	if len(sys.argv) == 2:
-		app.run(port=int(sys.argv[1]))
-	else:
-		app.run()
+	app.run()
 

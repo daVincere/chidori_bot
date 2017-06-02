@@ -1,5 +1,5 @@
 """
-Second Messenger Bot
+Second Messenger Bot: This bot has been connected to Api.AI. The Messenger behaves as if talking to Dholu, a fictional character.
 """
 
 import requests
@@ -7,19 +7,20 @@ import json
 from flask import Flask, request
 import apiai
 
+import dholukey
 # Messenger Credentials
-ACCESS_TOKEN = "EAAYHOejOPgYBAIdvrIbABXZBkyZBlUOtfkuFsWK6aX0ZBDT9EA3eBqplX3YkzIjBTmX7n5FnEIQkJyBOy2UQDCBcgPBAKwuuW8JxJhMTEDKo4Dg0YCwCgPLytfQlu8VX2myaA9SZByIZAdQsGZBqficnx0eiuCeV9hjPzn55kDKAZDZD"
+ACCESS_TOKEN = dholukey.ACCESS_TOKEN
 
-# apiai Credentials
-CLIENT_ACCESS_TOKEN = "83ca492d5bb04b3d81aa0408d92c90d4"
+# apiai credentials
+# you can get them from apiai dashboard
+CLIENT_ACCESS_TOKEN = dholukey.CLIENT_ACCESS_TOKEN
 ai = apiai.ApiAI(CLIENT_ACCESS_TOKEN)
 
 app = Flask(__name__)
 
 @app.route('/dholu', methods=['GET'])
 def verify():
-	# our endpoint echos back the 'hub.challenge' value
-	# specified when we setup the webhook
+	# our endpoint echos back the 'hub.challenge' value specified when we setup the webhook
 	if request.args.get("hub.mode") == "subscribe" and request.args.get("hub.challenge"):
 		# if the webhook has been subscribed and there's an argument as "hub.challenge"
 		if not request.args.get("hub.verify_token") == "1234567890":

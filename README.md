@@ -1,4 +1,4 @@
-# chithori_bot
+# chidori_bot
 Facebook messenger chat-bots.
 
 Work under progress. 

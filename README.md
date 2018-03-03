@@ -6,7 +6,7 @@ Work under progress.
 The aim is to create three more bots:
 
 1. A music player, playing youtube videos of the particular song.
-2. A chatbot based on one of a close friend. 
+2. A chatbot with a stark personality. 
 3. //getting ahead of myself.
 
 Cheers!
